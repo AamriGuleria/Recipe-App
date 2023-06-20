@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,300&family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Quicksand:wght@500&family=Raleway:ital,wght@1,100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,300&family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Quicksand:wght@500&family=Raleway:ital,wght@1,100&display=swap');
+body{
+    background-color:rgb(0, 0, 0);
+    box-sizing:border-box;
+}
+*{
+    align-items: center;
+}
+.form{
+    padding-top:0;
+    background-image:url("https://images.pexels.com/photos/949587/pexels-photo-949587.jpeg?auto=compress&cs=tinysrgb&w=600");
+    object-fit: cover;
+}
+.none{
+    display:none;
+}
+.subs{
+    color:white;
+    
+}
+.mealType{
+    display: flex;
+    justify-content:center;
+}
+.hide h1{
+    font-family: 'Raleway';
+    font-weight: 2000;
+}
+.hide p{
+    font-family: 'Raleway', sans-serif;
+    font-size:25px;
+    
+    font-weight:1000;
+}
+.hide img{
+    border-radius:20px;
+}
+.hide{
+    justify-content: center;
+    align-items:center;
+    vertical-align: center;
+}
+.side-bar{
+    margin:0;
+    font-size:25px;
+    color: white;
+    font-weight:700;
+    font-family: 'Raleway', sans-serif;
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap:5px;
+}
+.button{
+    border:none;
+    background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+    padding:5px;
+    border-radius: 5px;
+    margin:5px;
+}
+.button:hover{
+    background-image: linear-gradient(120deg, #b5e645 0%, #3de053 100%);
+}
+.aaiya{
+    color:white;
+}
+.right{
+    display:none;
+}
+.footer{
+    color:black;
+    margin-bottom:0;
+    background-image: linear-gradient(to right, #8360c3, #2ebf91);
+    position:fixed;
+    width:100%;
+    bottom:0;
+}
+.search-form{
+    padding:0;
+    transform: translateY(-10%);
+}
+.icon{
+    height:40px;
+    width:40px;
+    border-radius: 50%;
+    background-position: center;
+}
+.search-bar{
+    background-color:black;
+    font-size:20px;
+    color:white;
+    padding:5px;
+    width:60%;
+}
+.search-bar1{
+    padding:6px;
+    background-color: black;
+    color:white;
+    transform:translateY(-10%);
+}
+.recipes{
+    display:inline-flex;
+    flex-wrap: wrap;
+    text-align:center;
+    justify-content:center;
+    background-color:transparent;
+}
+.food-card{
+    border-radius:5px;
+    margin-top:5%;
+    border:1px solid rgb(213, 210, 210);
+    width:60%;
+    margin-left:20%;
+    box-sizing:border-box;
+    background-image:url("https://images.pexels.com/photos/2802527/pexels-photo-2802527.jpeg?auto=compress&cs=tinysrgb&w=600");
+    background-repeat: no-repeat;
+    background-size:cover;
+    align-items:center;
+    display:inline-flex;
+    gap:10px;
+}
+.ingredients{
+    margin:5%;
+    background-color:wheat;
+    border-radius:10px;
+}
+.image{
+    object-fit: cover;
+    background-position: center;
+    border-radius:50%;
+}
+.title-name{
+    padding:10px;
+    margin-top:30px;
+    text-align: center;
+    width:200px;
+    overflow-wrap:break-word;
+    margin:1px;
+    color:black;
+    text-align: center;
+    font-family:sans-serif;
+
+}
+.left{
+    display:inline-flex;
+    flex-wrap: wrap;
+    text-align:center;
+    justify-content:center;
+    word-wrap: break-word;
+    border:1px solid black;
+    margin:10px;
+    background-color: white;
+    border-radius:5%;
+    box-shadow:3px 3px 3px 3px rgba(0, 0, 0, 0.82);
+}
+.one-ingre{
+    align-items:center;
+    display:inline-flex;
+    margin:5px;
+    max-width:150px;
+    padding:6px;
+}
+.ingre-heading{
+    text-decoration: underline;
+    text-align:center;
+}
+.calories{
+    margin:20px;
+}
+@media (max-width:1000px)
+{
+    .food-card{
+        overflow: scroll;
+    }
+}
