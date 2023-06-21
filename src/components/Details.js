@@ -10,7 +10,6 @@ const Details = () => {
   const {ingredients}=location.state;
   const {health}=location.state;
   const {url}=location.state;
-  console.log(ingredients)
   return (
     <>
     <center>
