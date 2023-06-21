@@ -7,6 +7,7 @@ const Navbar = () => {
   const [recipes, setRecipes] = useState([]);
   const [check, setcheck] = useState(true)
   const [search, setSearch] = useState("");
+  console.log(recipes)
   const getData = async (query) => {
     const a = `https://api.edamam.com/api/recipes/v2?type=public&q=${query}&app_id=f973bd6c&app_key=793bf9bfc1966e765d09c7621c4edd59`
     const res = await fetch(a);
@@ -61,12 +62,12 @@ const Navbar = () => {
 
           <form className="search-form" onSubmit={getSearch}>
             <div className="side-bar">
-              <img src="https://www.shutterstock.com/image-vector/yum-text-only-one-single-600w-1445409173.jpg" className="icon" />
+              <img src="/hot-pot.png" className="icon" />
               <p className="main-heading">Cookery</p>
             </div>
             <center>
               <input className="search-bar" type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="search...." name="query" />
-              <button className="search-bar1" type="submit" onClick={getSearch}>GO</button>
+              <button className="search-bar1" type="submit" onClick={getSearch}><img src="/search.png" className="search" height="30px" width="30px"></img></button>
             </center>
           </form>
         </div>
@@ -82,22 +83,21 @@ const Navbar = () => {
       <div className={check?"subs":"none"}>
         <center>
       <div className="hide">
-      <h1 className="hide-head">Welcome To My Recipe App 🍵</h1>
-        <p className="hide-theory">Use the Search bar for any recipe 🍽</p>
-        <img src="https://bestanimations.com/media/food/690171314taco-animated-gif.gif" height="300px" width="300px"/>
+        <p className="hide-theory">USE THE SEARCH BAR FOR ANY RECIPE 🍽</p>
+        <img src="https://media.tenor.com/_gaBd0qapXwAAAAd/victoriabea4-precious.gif" height="300px" width="300px"/>
       </div>
       </center>
       </div>
       <div className="recipes">
         {
           recipes.map(recipe => (
-            <Recipe title={recipe.recipe.label} calories={recipe.recipe.calories} image={recipe.recipe.image} ingredients={recipe.recipe.ingredients} healthl={recipe.recipe.healthLabels} />
+            <Recipe title={recipe.recipe.label} calories={recipe.recipe.calories} image={recipe.recipe.image} ingredients={recipe.recipe.ingredients} healthl={recipe.recipe.healthLabels} url={recipe.recipe.url}/>
           ))
         }
       </div>
       <div className="footer">
         <center>
-          Made With ❤️ By Aamri 👩🏻‍💻
+          Made With ❤️ By Aamri 👩🏻
         </center>
       </div>
     </>

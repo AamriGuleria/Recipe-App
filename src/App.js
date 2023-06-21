@@ -2,14 +2,20 @@ import React,{useState,useEffect} from 'react'
 import "./components/cardStyles.css"
 import Recipe from "./components/Recipe"
 import Navbar from "./Navbar.js"
+import Details from "./components/Details"
 import {errorPage} from "./components/errorPage.js"
-import { BrowserRouter as Router, Switch, Route, Redirect,} from "react-router-dom";
+import { BrowserRouter, Switch,Routes, Route, Redirect,} from "react-router-dom";
 const App = () => {
   
   return(
-    <div className="App">
-      <Navbar/>
-    </div>
+    <>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Navbar/>}/>
+      <Route path="/details" element={<Details/>}/>
+    </Routes>
+    </BrowserRouter>
+    </>
       
   )
 

@@ -2,27 +2,15 @@ import React,{useState} from 'react'
 import Details from "./Details.js"
 import "./cardStyles.css"
 import {Link,Redirect} from "react-router-dom"
-const Recipe =({title,calories,image,ingredients,healthl})=> {
-  const [minute,setminute]=useState(false)
-  const [img,setimg]=useState("")
-  const [titl,settitl]=useState("")
-  const [ingre,setingre]=useState([])
-  const [health,sethealth]=useState([])
-
-  const change=()=>{
-    setminute(true);
-   
-  }
+const Recipe =({title,calories,image,ingredients,healthl,url})=> {
   return (
-    
-    <div>
-      <div className="left" onClick={change}>
+      <div className="left">
         <center>
       <h4 className="title-name">{title}</h4>
       <img src={image} height="220px" width="220px" className='image'/>
       <p className="calories"><h4>Calories-{Math.round(calories)}</h4></p>
+      <Link to="/details" state={{title:title,image:image,ingredients:ingredients,health:healthl,url:url}} className="info">Info</Link>
       </center>
-      </div>
       </div>
   )
 }
