@@ -142,6 +142,10 @@ body{
     color:white;
     justify-content: space-around;
 }
+.main-cheeze img{
+    background-position: center;
+    background-size: cover;
+}
 .three .each-label{
     display: flex;
     flex-direction: column;
@@ -283,8 +287,12 @@ body{
         display: flex;
         flex-direction: column;
     }
+    .error{
+        display:flex;
+        flex-direction: column;
+    }
 }
-@media (max-widtg:600){
+@media (max-width:600){
     .hide{
         width: fit-content;
         block-size: fit-content;
