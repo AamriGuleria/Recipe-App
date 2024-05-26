@@ -1,6 +1,8 @@
 import React,{useState,useEffect} from 'react'
 import "./components/cardStyles.css"
 import Recipe from "./components/Recipe"
+import LoginPage from './LoginPage.js'
+import Login from "./Login.js"
 import Navbar from "./Navbar.js"
 import Details from "./components/Details"
 import {errorPage} from "./components/errorPage.js"
@@ -11,7 +13,9 @@ const App = () => {
     <>
     <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Navbar/>}/>
+    <Route path="/" element={<LoginPage/>}/>
+    <Route path="/login" element={<Login/>}/>
+      <Route path="/main" element={<Navbar/>}/>
       <Route path="/details" element={<Details/>}/>
     </Routes>
     </BrowserRouter>
