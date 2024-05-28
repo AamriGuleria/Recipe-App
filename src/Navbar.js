@@ -1,6 +1,7 @@
 // eslint-disable-next-line
 import React, { useState, useEffect } from 'react'
 import "./components/cardStyles.css"
+// import {v4 as uuidv4} from 'uuid'
 import Recipe from "./components/Recipe"
 import errorPage from "./components/errorPage.js"
 import {Link} from "react-router-dom"
@@ -84,18 +85,21 @@ const Navbar = () => {
         </div>
         <center>
           <div className='mealType'>
-            <button type="submit" className="button" onClick={drinks}>Drinks</button>
-            <button type="submit" className="button" onClick={desserts}>Desserts</button>
-            <button type="submit" className="button" onClick={starters}>Starter</button>
-            <button type="submit" className="button" onClick={main}>MainCourse</button>
+            <button type="submit" className="button" onClick={drinks}><img src="/drink.png" height="40px" width="40px"></img></button>
+            <button type="submit" className="button" onClick={desserts}><img src="/food.png" height="40px" width="40px"/></button>
+            <button type="submit" className="button" onClick={starters}><img src="/tapas.png" height="40px" width="40px"/></button>
+            <button type="submit" className="button" onClick={main}><img src="/curry.png" height="40px" width="40px"/></button>
+            <Link  className="button" to="/wishlist"><img src="https://imgs.search.brave.com/MTwG-K4f9fVRGYvSSrfXldDNDFZZ7BG0FKjn7aRVk4A/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jZG4t/MC5lbW9qaXMud2lr/aS9lbW9qaS1waWNz/L21lc3Nlbmdlci9y/ZWQtaGVhcnQtbWVz/c2VuZ2VyLnBuZw" height="40px" width="40px"></img></Link>
           </div>
           </center>
       </div>
       <div className={check?"none":"subs"}>
         <center>
       <div className="hide">
-        <p className="hide-theory">USE THE SEARCH BAR FOR ANY RECIPE <img className="use" height="40px" width="40px" src="/hot-pot.png"></img></p>
+        <center>
+        {/* <p className="hide-theory">USE THE SEARCH BAR FOR ANY RECIPE <img className="use" height="40px" width="40px" src="/hot-pot.png"></img></p> */}
         <img src="https://media.tenor.com/_gaBd0qapXwAAAAd/victoriabea4-precious.gif" height="300px" width="300px"/>
+        </center>
       </div>
       </center>
       </div>
@@ -103,7 +107,7 @@ const Navbar = () => {
       <div className="recipes">
         {
           recipes.map(recipe => (
-            <Recipe title={recipe.recipe.label} calories={recipe.recipe.calories} image={recipe.recipe.image} ingredients={recipe.recipe.ingredients} healthl={recipe.recipe.healthLabels} url={recipe.recipe.url}/>
+            <Recipe  wishlisted={"no"} title={recipe.recipe.label} calories={recipe.recipe.calories} image={recipe.recipe.image} ingredients={recipe.recipe.ingredients} healthl={recipe.recipe.healthLabels} url={recipe.recipe.url}/>
           ))
         }
       </div>
@@ -117,11 +121,11 @@ const Navbar = () => {
             <p className="error-text">COULD NOT FIND YOUR DESIRED RECIPE</p>
           </div>
       </div>
-      <div className="footer">
+      {/* <div className="footer">
         <center>
           Made With ❤️ By Aamri
         </center>
-      </div>
+      </div> */}
     </>
 
   )

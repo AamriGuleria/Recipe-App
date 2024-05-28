@@ -4,6 +4,7 @@ import Recipe from "./components/Recipe"
 import LoginPage from './LoginPage.js'
 import Login from "./Login.js"
 import Navbar from "./Navbar.js"
+import WishList from "./components/WishList.js"
 import Details from "./components/Details"
 import {errorPage} from "./components/errorPage.js"
 import { BrowserRouter, Switch,Routes, Route, Redirect,} from "react-router-dom";
@@ -17,6 +18,7 @@ const App = () => {
     <Route path="/login" element={<Login/>}/>
       <Route path="/main" element={<Navbar/>}/>
       <Route path="/details" element={<Details/>}/>
+      <Route path="/wishlist" element={<WishList/>}/>
     </Routes>
     </BrowserRouter>
     </>

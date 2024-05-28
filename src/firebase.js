@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
+import 'firebase/database';
+import { getFirestore, collection, addDoc} from 'firebase/firestore';
 const firebaseConfig = {
     apiKey: "AIzaSyBkEv9vUNOVWOJ6rePrzjYxo9-qXV6xbRc",
     authDomain: "recipeapp-732bb.firebaseapp.com",
@@ -14,4 +15,4 @@ const firebaseConfig = {
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
   const auth = getAuth(app);
-  export { auth, db };
+  export { auth, db , collection, addDoc};
