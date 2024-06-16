@@ -121,16 +121,9 @@ const Navbar = () => {
             <p className="error-text">COULD NOT FIND YOUR DESIRED RECIPE</p>
           </div>
       </div>
-      {/* <div className="footer">
-        <center>
-          Made With ❤️ By Aamri
-        </center>
-      </div> */}
     </>
 
   )
 }
 
 export default Navbar
-// {toggleButton?(<i className="fa fa-edit add-btn" onClick={addItem}></i>
-//                 ):(<i className="fa fa-plus add-btn" onClick={addItem}></i>)}

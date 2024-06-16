@@ -1,6 +1,5 @@
 import React,{useState} from 'react'
 import Details from "./Details.js"
-import { db,collection,addDoc } from '../firebase';
 import "./cardStyles.css"
 import {Link,Redirect} from "react-router-dom"
 const Recipe =({wishlisted,title,calories,image,ingredients,healthl,url})=> {
@@ -14,7 +13,7 @@ const Recipe =({wishlisted,title,calories,image,ingredients,healthl,url})=> {
       healthl: healthl,
       url: url
     };
-    console.log("wishlist")
+    console.log(recipeObject)
   }
   return (
       <div className="left">

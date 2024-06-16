@@ -259,6 +259,12 @@ body{
     width:40px;
     height:40px;
 } */
+/* .Go-Back{
+    text-decoration: none;
+    color:Blue;
+    font-size: larger;
+    float:left;
+} */
 .title-name:hover{
     color:wheat;
     cursor:pointer;

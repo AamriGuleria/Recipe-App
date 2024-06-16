@@ -13,6 +13,7 @@ const Details = () => {
   return (
     <>
     <center>
+      {/* <Link to="/main" className="Go-Back">Go Back</Link> */}
       <div className="main-cheeze">
         <div className="one">
       <h4 className="aaiya">{title}</h4>
