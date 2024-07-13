@@ -12,8 +12,12 @@ const Signup = () => {
     e.preventDefault();
     try {
       await createUserWithEmailAndPassword(auth,email, password);
-    //   console.log(email,password)
-      alert('User signed up successfully');
+      const user = auth.currentUser;
+      if (user) {
+        const idToken = await user.getIdToken();
+        console.log('ID Token:', idToken);
+        alert('User signed up successfully');
+      }
     } catch (error) {
         if(error.code==="auth/email-already-in-use"){
             window.location.href="/login"

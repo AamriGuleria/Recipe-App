@@ -10,8 +10,13 @@ const Login = () => {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth,email, password);
-      alert('User logged in successfully');
-      window.location.href="/main"
+      const user = auth.currentUser; // Get the current user
+      if (user) {
+        const idToken = await user.getIdToken(); // Get the ID token
+        console.log('ID Token:', idToken);
+        alert('User logged in successfully');
+        window.location.href = "/main";
+      }
     } catch (error) {
       alert(error.message);
     }

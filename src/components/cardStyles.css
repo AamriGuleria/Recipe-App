@@ -65,9 +65,9 @@ body{
     border-radius: 50%;
     margin:5px;
 }
-.button img{
+/* .button img{ */
     /* height:5%; */
-}
+/* } */
 .button:hover{
     background-image: linear-gradient(120deg, #b5e645 0%, #3de053 100%);
 }
