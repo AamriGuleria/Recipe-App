@@ -29,7 +29,7 @@ const Signup = () => {
   return (
     <div className="Auth">
     <form onSubmit={handleSignup}>
-      <h1>Sign Up</h1>
+      <h1>SIGN UP</h1>
       <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email..."/>
       <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password..."/>
       <button type="submit">Sign Up</button>

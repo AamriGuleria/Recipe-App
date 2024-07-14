@@ -1,25 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import { getAuth } from 'firebase/auth';
+import {Link,Redirect} from "react-router-dom"
 import { getDatabase, ref, onValue, remove } from 'firebase/database';
-import {EmptywishList} from "./EmptywishList"
+import EmptywishList from "./EmptywishList"
+import "./cardStyles.css"
 const WishList = () => {
   const [w, setw] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    
     const auth = getAuth();
-    const user = auth.currentUser;
+    // console.log(auth)
+    const user = auth.currentUser;//gives me the access token
 
     if (!user) {
       console.error('User not authenticated');
       return;
     }
-
-    const database = getDatabase();
-    const wishlistRef = ref(database, 'wishlist');
-
-    onValue(wishlistRef, (snapshot) => {
-      const data = snapshot.val();
+        const database = getDatabase();
+        const userWishlistRef = ref(database, `wishlist/${user.uid}`);//reference to a specific location in the db
+        //wishlist node reference in the database
+    onValue(userWishlistRef , (d) => {
+      const data = d.val();
       if (data) {
         const wishlistArray = Object.keys(data).map(key => ({
           id: key,
@@ -44,14 +47,15 @@ const WishList = () => {
       return;
     }
 
-    try {
-      const database = getDatabase();
-      await remove(ref(database, `wishlist/${id}`));
-      setw(w => w.filter(item => item.id !== id));
-      alert('Recipe removed from wishlist');
-    } catch (error) {
-      console.error('Error deleting document:', error);
-    }
+    const database = getDatabase();
+        const itemRef = ref(database, `wishlist/${user.uid}/${id}`);
+        remove(itemRef)
+            .then(() => {
+                console.log('Item removed from wishlist');
+            })
+            .catch((error) => {
+                console.error('Error removing item from wishlist:', error);
+            });
   };
 
   if (loading) {
@@ -61,22 +65,25 @@ const WishList = () => {
   return (
     <div>
       {w.length > 0 ? (
-        <ul>
-          {w.map(item => (
-            <li key={item.id}>
-              <h3>{item.title}</h3>
-              <p>Calories: {item.calories}</p>
-              <img src={item.image} alt={item.title} />
-              <p>Ingredients: {item.ingredients.join(', ')}</p>
-              <p>Health Labels: {item.healthl.join(', ')}</p>
-              <a href={item.url} target="_blank" rel="noopener noreferrer">Recipe Link</a>
-              <button onClick={() => handleDelete(item.id)}>Delete</button>
-            </li>
-          ))}
-        </ul>
+        <div>
+        {w.map(item => (
+        <div className="left" key={item.id}>
+        <center>
+      <div className='top'>
+      <h4 className="title-name">{item.title}</h4>
+      </div>
+      <img src={item.image} className='image'/>
+      <p className="calories"><h4>Calories-{Math.round(item.calories)}</h4></p>
+      <div>
+      <Link to="/details" state={{title:item.title,image:item.image,ingredients:item.ingredients,health:item.healthl,url:item.url}} className="info"><img src="/next.png"/></Link>
+      <button className="info2" onClick={() => handleDelete(item.id)}><img src="/trash.png"/></button>
+      </div>
+      </center>
+      </div>
+      ))}
+      </div>
       ) : (
-        // <EmptywishList/>
-        <p></p>
+        <EmptywishList/>
       )}
     </div>
   );

@@ -307,6 +307,23 @@ body{
     float: left;
     font-size: large;
 }
+.info2 img{
+    height:22px;
+    width:22px;
+}
+.info2{
+    transform: translateY(15%);
+    float: right;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size:18px;
+    border:none;
+    text-decoration: none;
+    color:black;
+    border-radius: 5px;
+    font-weight: 600;
+    padding: 3%;
+    border-radius: 50%;
+}
 .info img{
     height:40px;
     width:40px;
