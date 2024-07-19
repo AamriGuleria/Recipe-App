@@ -28,7 +28,9 @@ const Login = () => {
       <h1>LOGIN</h1>
       <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email..."/>
       <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password..."/>
+      <center>
       <button type="submit">Login</button>
+      </center>
     </form>
     </div>
   );

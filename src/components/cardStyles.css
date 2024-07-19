@@ -367,7 +367,7 @@ body{
         flex-direction: column;
     }
 }
-@media (max-width:600){
+/* @media (max-width:600){
     .hide{
         width: fit-content;
         block-size: fit-content;
@@ -380,7 +380,7 @@ body{
         width: fit-content;
         block-size: fit-content;
     }
-}
+} */
 @media (max-width:450px){
     .button{
         font-size:15px;
