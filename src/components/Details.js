@@ -4,7 +4,8 @@ import {useLocation} from "react-router-dom"
 import {Link} from "react-router-dom"
 const Details = () => {
   const [ingre,setingre]=useState([])
-  const location=useLocation()
+  // current URL, pathname, and state.
+  const location=useLocation()// retrieves the location object from the React Router library
   const {title}=location.state;
   const {image}=location.state;
   const {ingredients}=location.state;
@@ -13,7 +14,6 @@ const Details = () => {
   return (
     <>
     <center>
-      {/* <Link to="/main" className="Go-Back">Go Back</Link> */}
       <div className="main-cheeze">
         <div className="one">
       <h4 className="aaiya">{title}</h4>
@@ -53,10 +53,3 @@ const Details = () => {
 }
 
 export default Details
-{/* <div className="recipes">
-        {
-          recipes.map(recipe => (
-            <Recipe title={recipe.recipe.label} calories={recipe.recipe.calories} image={recipe.recipe.image} ingredients={recipe.recipe.ingredients} healthl={recipe.recipe.healthLabels} url={recipe.recipe.url}/>
-          ))
-        }
-      </div> */}

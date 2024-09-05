@@ -1,5 +1,4 @@
 import React,{useState} from 'react'
-import Details from "./Details.js"
 import "./cardStyles.css"
 import {Link,Redirect} from "react-router-dom"
 import { getAuth } from 'firebase/auth';
@@ -15,19 +14,18 @@ const Recipe =({wishlisted,title,calories,image,ingredients,healthl,url})=> {
       return;
     }
     const database = getDatabase();
-    const userWishlistRef = ref(database, `wishlist/${user.uid}`);
+    const userWishlistRef = ref(database, `wishlist/${user.uid}`);//Create a reference to the user's wishlist
+    console.log(userWishlistRef)
     try {
       const snapshot = await get(userWishlistRef);
+      console.log(snapshot)
         const existingItems = snapshot.val();
-
         // Check if the item already exists
         const itemExists = existingItems && Object.values(existingItems).some(item => item.title === title || item.url === url);
-
         if (itemExists) {
             alert('This recipe is already in your wishlist');
             return;
         }
-
         // Add new item to wishlist
         const newWishlistRef = push(userWishlistRef);
         await set(newWishlistRef, {
@@ -41,7 +39,6 @@ const Recipe =({wishlisted,title,calories,image,ingredients,healthl,url})=> {
         alert('Recipe added to wishlist');
     } catch (error) {
         console.error('Error adding document:', error);
-    
   }
   }
   return (

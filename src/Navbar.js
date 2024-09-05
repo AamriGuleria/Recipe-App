@@ -1,9 +1,7 @@
 // eslint-disable-next-line
 import React, { useState, useEffect } from 'react'
 import "./components/cardStyles.css"
-// import {v4 as uuidv4} from 'uuid'
 import Recipe from "./components/Recipe"
-import errorPage from "./components/errorPage.js"
 import {Link} from "react-router-dom"
 const Navbar = () => {
   const [recipes, setRecipes] = useState([]);
@@ -71,11 +69,10 @@ const Navbar = () => {
     <>
       <div className="Nav">
         <div className="form">
-
           <form className="search-form" onSubmit={getSearch}>
             <div className="side-bar">
               <img src="/hot-pot.png" className="icon" />
-              <p className="main-heading">Cook-Book</p>
+              <p className="main-heading">RecipeExplorer</p>
             </div>
             <center>
               <input className="search-bar" type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="search...." name="query" />
@@ -97,7 +94,6 @@ const Navbar = () => {
         <center>
       <div className="hide">
         <center>
-        {/* <p className="hide-theory">USE THE SEARCH BAR FOR ANY RECIPE <img className="use" height="40px" width="40px" src="/hot-pot.png"></img></p> */}
         <img src="https://media.tenor.com/_gaBd0qapXwAAAAd/victoriabea4-precious.gif" height="300px" width="300px"/>
         </center>
       </div>
@@ -112,7 +108,6 @@ const Navbar = () => {
         }
       </div>
       <div className={isEmpty?"error":"bone"}>
-
           <div className="error-img">
           <img src="/salad.png"/>
           </div>
