@@ -26,6 +26,9 @@ const Login = () => {
     <div className="Auth">
     <form onSubmit={handleLogin}>
       <h1>LOGIN</h1>
+      <div class="icon-container">
+      <img src="/healthy-food.png" alt="icon"/>
+        </div>
       <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email..."/>
       <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password..."/>
       <center>
