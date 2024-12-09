@@ -3,11 +3,24 @@ import React, { useState, useEffect } from 'react'
 import "./components/cardStyles.css"
 import Recipe from "./components/Recipe"
 import {Link} from "react-router-dom"
+import { getAuth } from 'firebase/auth';
 const Navbar = () => {
   const [recipes, setRecipes] = useState([]);
   const [check, setcheck] = useState(false)
   const [search, setSearch] = useState("");
   const [isEmpty,setisEmpty]=useState(false)
+
+  useEffect(() => {
+    const auth = getAuth();
+    const user = auth.currentUser;
+
+    if (!user) {
+      alert("YOU ARE NOT AUTHENTICATED!!")
+      window.location.href = '/';
+      return;
+    }
+  }, []); 
+
   const getData = async (query) => {
     const a = `https://api.edamam.com/api/recipes/v2?type=public&q=${query}&app_id=f973bd6c&app_key=793bf9bfc1966e765d09c7621c4edd59`
     const res = await fetch(a);
