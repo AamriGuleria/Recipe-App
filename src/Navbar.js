@@ -12,14 +12,18 @@ const Navbar = () => {
 
   useEffect(() => {
     const auth = getAuth();
-    const user = auth.currentUser;
-
-    if (!user) {
-      alert("YOU ARE NOT AUTHENTICATED!!")
-      window.location.href = '/';
-      return;
-    }
-  }, []); 
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (!user) {
+        alert("User Not Authenticated!!")
+        window.location.href = '/';
+      } else {
+        console.log('User authenticated:', user.email);
+      }
+    });
+  
+    return () => unsubscribe();
+  }, []);
+   
 
   const getData = async (query) => {
     const a = `https://api.edamam.com/api/recipes/v2?type=public&q=${query}&app_id=f973bd6c&app_key=793bf9bfc1966e765d09c7621c4edd59`
